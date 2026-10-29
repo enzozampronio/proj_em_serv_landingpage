@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gestão de Projetos em Serviços · CAD8023 UFSC</title>
+<meta name="description" content="Links da apresentação de Gestão de Projetos em Serviços (CAD8023, UFSC, 2026.2): PMBOK, slides, documento e ferramentas online recomendadas.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Gestão de Projetos em Serviços · CAD8023">
+<meta property="og:description" content="PMBOK, slides, documento da apresentação e ferramentas online recomendadas.">
+<meta name="theme-color" content="#F2F0E6">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;0,7..72,700;1,7..72,400&display=swap">
+<style>
+  /* Identidade da EP-LOJA: papel e tinta, só tema claro. Todo "cinza" é a tinta com transparência. */
+  :root {
+    color-scheme: light;
+    --ink-rgb: 32 54 206;     /* #2036CE */
+    --paper-rgb: 242 240 230; /* #F2F0E6 */
+
+    /* Degraus de tinta sobre o papel: 100% -> 7,4:1 | 78% -> 4,7:1 (AA) | 22% -> só filete */
+    --ink-100: rgb(var(--ink-rgb));
+    --ink-78: rgb(var(--ink-rgb) / 0.78);
+    --ink-22: rgb(var(--ink-rgb) / 0.22);
+    --paper: rgb(var(--paper-rgb));
+
+    --fonte: "Literata", Georgia, serif;
+    --fonte-apoio: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-font-smoothing: antialiased; -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; min-height: 100vh;
+    font-family: var(--fonte); font-size: 16px; line-height: 1.5;
+    color: var(--ink-100); background: var(--paper);
+  }
+  a { color: var(--ink-100); }
+  ::selection { background: var(--ink-100); color: var(--paper); }
+  h1, h2, p { margin: 0; }
+
+  .pagina {
+    width: 100%; max-width: 600px; margin: 0 auto;
+    padding: clamp(36px, 8vw, 72px) 16px 64px;
+    display: flex; flex-direction: column; gap: 20px;
+  }
+
+  /* Abertura */
+  .abertura { display: flex; flex-direction: column; gap: 12px; padding-bottom: 24px; margin-bottom: 4px; border-bottom: 1px solid var(--ink-22); }
+  .rotulo {
+    font-family: var(--fonte-apoio); font-size: 13px; font-weight: 700; line-height: 1.3;
+    letter-spacing: .1em; text-transform: uppercase; font-variant-numeric: tabular-nums;
+    color: var(--ink-78);
+  }
+  .abertura__titulo {
+    font-size: clamp(27px, 7.4vw, 38px); font-weight: 600; line-height: 1.12;
+    letter-spacing: .005em; text-transform: uppercase; text-wrap: balance;
+  }
+  .abertura__autor { font-size: 18px; line-height: 1.4; color: var(--ink-78); }
+
+  /* Blocos de links: cabeçalho em tinta cheia, linhas separadas por filete */
+  .categoria { display: flex; flex-direction: column; border: 1px solid var(--ink-100); border-radius: 6px; overflow: hidden; }
+  .categoria__topo { display: flex; flex-direction: column; gap: 2px; padding: 12px 20px; background: var(--ink-100); color: var(--paper); }
+  .categoria__titulo { font-size: 18px; font-weight: 600; line-height: 1.3; }
+  .categoria__sub { font-family: var(--fonte-apoio); font-size: 13px; line-height: 1.4; color: rgb(var(--paper-rgb) / .82); }
+
+  .item-linha { display: flex; flex-direction: column; gap: 3px; padding: 14px 20px; border-top: 1px solid var(--ink-22); text-decoration: none; }
+  .categoria__topo + .item-linha { border-top: 0; }
+  .item-linha:hover { background: rgb(var(--ink-rgb) / .05); }
+  .item-linha:focus-visible { outline: 2px solid var(--ink-100); outline-offset: -4px; }
+  .item-linha__topo { display: flex; align-items: baseline; gap: 12px; }
+  .item-linha__nome { font-size: 19px; font-weight: 500; line-height: 1.3; }
+  .pontilhado { flex: 1; min-width: 16px; border-bottom: 1.5px dotted var(--ink-22); transform: translateY(-5px); }
+  .seta { flex: none; width: 16px; height: 16px; transform: translateY(2px); transition: transform .15s ease; }
+  .item-linha:hover .seta { transform: translate(2px, 0); }
+  .item-linha__desc { font-family: var(--fonte-apoio); font-size: 14px; line-height: 1.45; color: var(--ink-78); max-width: 460px; text-wrap: pretty; }
+
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+  @media (prefers-reduced-motion: reduce) { .seta { transition: none; } }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="seta" viewBox="0 0 16 16"><path d="M4.5 11.5l7-7M6 4.5h5.5V10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<main class="pagina">
+  <header class="abertura">
+    <p class="rotulo">CAD8023 · 2026.2 · UFSC</p>
+    <h1 class="abertura__titulo">Gestão de Projetos em Serviços</h1>
+    <p class="abertura__autor">Enzo Mesquita Serva Zampronio</p>
+  </header>
+
+  <section class="categoria" aria-labelledby="materiais">
+    <div class="categoria__topo">
+      <h2 class="categoria__titulo" id="materiais">Material da apresentação</h2>
+      <p class="categoria__sub">Arquivos em PDF no Google Drive</p>
+    </div>
+    <a class="item-linha" href="https://drive.google.com/file/d/1WNQkDpz7xwPkCh7qJOSBPklbKkMnRcXq/view?usp=sharing" target="_blank" rel="noopener">
+      <span class="item-linha__topo">
+        <span class="item-linha__nome">PMBOK</span>
+        <span class="pontilhado" aria-hidden="true"></span>
+        <svg class="seta" aria-hidden="true"><use href="#seta"/></svg>
+      </span>
+      <span class="sr">(abre em nova aba)</span>
+    </a>
+    <a class="item-linha" href="https://drive.google.com/file/d/1SAIIq0Nx1ojc8Gj7PtFIu3YE14BRzetJ/view?usp=sharing" target="_blank" rel="noopener">
+      <span class="item-linha__topo">
+        <span class="item-linha__nome">Slides Apresentação</span>
+        <span class="pontilhado" aria-hidden="true"></span>
+        <svg class="seta" aria-hidden="true"><use href="#seta"/></svg>
+      </span>
+      <span class="sr">(abre em nova aba)</span>
+    </a>
+    <a class="item-linha" href="https://drive.google.com/file/d/18n1YVafOQbBhN2G_qedANkNZrV1dvPQ0/view?usp=sharing" target="_blank" rel="noopener">
+      <span class="item-linha__topo">
+        <span class="item-linha__nome">Apresentação Documento</span>
+        <span class="pontilhado" aria-hidden="true"></span>
+        <svg class="seta" aria-hidden="true"><use href="#seta"/></svg>
+      </span>
+      <span class="sr">(abre em nova aba)</span>
+    </a>
+  </section>
+
+  <section class="categoria" aria-labelledby="ferramentas">
+    <div class="categoria__topo">
+      <h2 class="categoria__titulo" id="ferramentas">Ferramentas online recomendadas</h2>
+      <p class="categoria__sub">EP-LOJA · conta.enzoproducoes.com.br</p>
+    </div>
+    <a class="item-linha" href="https://conta.enzoproducoes.com.br/item/plano-de-projeto/" target="_blank" rel="noopener">
+      <span class="item-linha__topo">
+        <span class="item-linha__nome">Planejar Projeto</span>
+        <span class="pontilhado" aria-hidden="true"></span>
+        <svg class="seta" aria-hidden="true"><use href="#seta"/></svg>
+      </span>
+      <span class="item-linha__desc">Antes de planejar, o projeto passa por um questionamento: a IA discute se ele deve existir e se o caminho que você imaginou é o melhor para chegar lá.</span>
+      <span class="sr">(abre em nova aba)</span>
+    </a>
+    <a class="item-linha" href="https://conta.enzoproducoes.com.br/item/mapa-de-processos/" target="_blank" rel="noopener">
+      <span class="item-linha__topo">
+        <span class="item-linha__nome">Mapa de Processos (Blueprint)</span>
+        <span class="pontilhado" aria-hidden="true"></span>
+        <svg class="seta" aria-hidden="true"><use href="#seta"/></svg>
+      </span>
+      <span class="item-linha__desc">Como o meu processo acontece hoje, quem faz cada etapa e onde ele trava?</span>
+      <span class="sr">(abre em nova aba)</span>
+    </a>
+    <a class="item-linha" href="https://conta.enzoproducoes.com.br/item/planejador-de-site/" target="_blank" rel="noopener">
+      <span class="item-linha__topo">
+        <span class="item-linha__nome">Planejador de Site</span>
+        <span class="pontilhado" aria-hidden="true"></span>
+        <svg class="seta" aria-hidden="true"><use href="#seta"/></svg>
+      </span>
+      <span class="item-linha__desc">O que o site do meu negócio precisa ter, página por página, antes de eu construir ou contratar alguém?</span>
+      <span class="sr">(abre em nova aba)</span>
+    </a>
+  </section>
+</main>
+</body>
+</html>
